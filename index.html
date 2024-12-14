@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {}
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clock {
+
+            padding: 1rem;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+        }
+
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .cell {
+            width: 100px;
+            height: 180px;
+            padding: 0.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+        }
+
+        .coloncont {
+            width: 50px;
+            height: 180px;
+        }
+
+        .colon {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .segment {
+            fill: rgba(82, 89, 93, 0.2);
+        }
+
+        .dots {
+            fill: rgba(82, 89, 93, 0.2);
+            fill: red;
+        }
+
+        .hour,
+        .Minutes,
+        .Seconds {
+            width: max-content;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+
+
+
+        @media (max-width: 825px) {
+
+            .cell {
+                width: 80px;
+                height: 140px;
+            }
+
+            .coloncont {
+                width: 50px;
+                height: 140px;
+            }
+
+            .clock {
+                padding: 0.5rem;
+                gap: 5px;
+            }
+
+            .hero {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .cell {
+                width: 60px;
+                height: 100px;
+            }
+
+            .coloncont {
+                width: 40px;
+                height: 100px;
+            }
+
+            .clock {
+                flex-wrap: wrap;
+                gap: 5px;
+                padding: 0.2rem;
+            }
+        }
+
+        @media (max-width: 569px) {
+
+            .cell {
+                width: 120px;
+                height: 200px;
+            }
+
+            .coloncont {
+                display: none;
+            }
+
+            .clock {
+                flex-wrap: wrap;
+                gap: 5px;
+                padding: 0.2rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="hero">
+        <video autoplay loop muted>
+            <source src="br.mp4" type="video/mp4">
+        </video>
+        <div class="clock">
+
+            <div class="hour">
+
+                <div class="cell" id="D1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 270" preserveAspectRatio="xMidYMid meet">
+                        <path class="segment" id="A" d="M 31 20 L 109 20 L 109 40 L 31 40 Z" />
+                        <path class="segment" id="B" d="M 110 20 L 120 20 L 129 30 L 130 127 L 120 127 L 110 117 Z" />
+                        <path class="segment" id="C"
+                            d="M 110 139 L 120 129 L 130 129 L 130 230 L 120 240 L 110 240 Z" />
+                        <path class="segment" id="D" d="M 31 220 L 109 220 L 109 240 L 31 240 Z" />
+                        <path class="segment" id="E" d="M 10 129 L 20 129 L 30 139 L 30 240 L 20 240 L 10 230 Z" />
+                        <path class="segment" id="F" d="M 11 30 L 21 20 L 30 20 L 30 117 L 20 127 L 10 127 Z" />
+                        <path class="segment" id="G" d="M 21 128 L 31 118 L 109 118 L 119 128 L 109 138 L 31 138 Z" />
+                    </svg>
+                </div>
+
+                <div class="cell" id="D2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 270">
+                        <path class="segment" id="A" d="M 31 20 L 109 20 L 109 40 L 31 40 Z" />
+                        <path class="segment" id="B" d="M 110 20 L 120 20 L 129 30 L 130 127 L 120 127 L 110 117 Z" />
+                        <path class="segment" id="C"
+                            d="M 110 139 L 120 129 L 130 129 L 130 230 L 120 240 L 110 240 Z" />
+                        <path class="segment" id="D" d="M 31 220 L 109 220 L 109 240 L 31 240 Z" />
+                        <path class="segment" id="E" d="M 10 129 L 20 129 L 30 139 L 30 240 L 20 240 L 10 230 Z" />
+                        <path class="segment" id="F" d="M 11 30 L 21 20 L 30 20 L 30 117 L 20 127 L 10 127 Z" />
+                        <path class="segment" id="G" d="M 21 128 L 31 118 L 109 118 L 119 128 L 109 138 L 31 138 Z" />
+                    </svg>
+                </div>
+
+            </div>
+
+            <div class="coloncont">
+                <div class="colon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="200" viewBox="0 0 10 20">
+                        <circle class="dots" cx="5" cy="5" r="2" />
+                        <circle class="dots" cx="5" cy="15" r="2" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="Minutes">
+
+                <div class="cell" id="D3">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 270">
+                        <path class="segment" id="A" d="M 31 20 L 109 20 L 109 40 L 31 40 Z" />
+                        <path class="segment" id="B" d="M 110 20 L 120 20 L 129 30 L 130 127 L 120 127 L 110 117 Z" />
+                        <path class="segment" id="C"
+                            d="M 110 139 L 120 129 L 130 129 L 130 230 L 120 240 L 110 240 Z" />
+                        <path class="segment" id="D" d="M 31 220 L 109 220 L 109 240 L 31 240 Z" />
+                        <path class="segment" id="E" d="M 10 129 L 20 129 L 30 139 L 30 240 L 20 240 L 10 230 Z" />
+                        <path class="segment" id="F" d="M 11 30 L 21 20 L 30 20 L 30 117 L 20 127 L 10 127 Z" />
+                        <path class="segment" id="G" d="M 21 128 L 31 118 L 109 118 L 119 128 L 109 138 L 31 138 Z" />
+                    </svg>
+                </div>
+
+                <div class="cell" id="D4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 270">
+                        <path class="segment" id="A" d="M 31 20 L 109 20 L 109 40 L 31 40 Z" />
+                        <path class="segment" id="B" d="M 110 20 L 120 20 L 129 30 L 130 127 L 120 127 L 110 117 Z" />
+                        <path class="segment" id="C"
+                            d="M 110 139 L 120 129 L 130 129 L 130 230 L 120 240 L 110 240 Z" />
+                        <path class="segment" id="D" d="M 31 220 L 109 220 L 109 240 L 31 240 Z" />
+                        <path class="segment" id="E" d="M 10 129 L 20 129 L 30 139 L 30 240 L 20 240 L 10 230 Z" />
+                        <path class="segment" id="F" d="M 11 30 L 21 20 L 30 20 L 30 117 L 20 127 L 10 127 Z" />
+                        <path class="segment" id="G" d="M 21 128 L 31 118 L 109 118 L 119 128 L 109 138 L 31 138 Z" />
+                    </svg>
+                </div>
+
+            </div>
+
+            <div class="coloncont">
+                <div class="colon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="200" viewBox="0 0 10 20">
+                        <circle class="dots" cx="5" cy="5" r="2" />
+                        <circle class="dots" cx="5" cy="15" r="2" />
+                    </svg>
+                </div>
+            </div>
+
+
+            <div class="Seconds">
+
+                <div class="cell" id="D5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 270">
+                        <path class="segment" id="A" d="M 31 20 L 109 20 L 109 40 L 31 40 Z" />
+                        <path class="segment" id="B" d="M 110 20 L 120 20 L 129 30 L 130 127 L 120 127 L 110 117 Z" />
+                        <path class="segment" id="C"
+                            d="M 110 139 L 120 129 L 130 129 L 130 230 L 120 240 L 110 240 Z" />
+                        <path class="segment" id="D" d="M 31 220 L 109 220 L 109 240 L 31 240 Z" />
+                        <path class="segment" id="E" d="M 10 129 L 20 129 L 30 139 L 30 240 L 20 240 L 10 230 Z" />
+                        <path class="segment" id="F" d="M 11 30 L 21 20 L 30 20 L 30 117 L 20 127 L 10 127 Z" />
+                        <path class="segment" id="G" d="M 21 128 L 31 118 L 109 118 L 119 128 L 109 138 L 31 138 Z" />
+                    </svg>
+                </div>
+
+                <div class="cell" id="D6">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 270">
+                        <path class="segment" id="A" d="M 31 20 L 109 20 L 109 40 L 31 40 Z" />
+                        <path class="segment" id="B" d="M 110 20 L 120 20 L 129 30 L 130 127 L 120 127 L 110 117 Z" />
+                        <path class="segment" id="C"
+                            d="M 110 139 L 120 129 L 130 129 L 130 230 L 120 240 L 110 240 Z" />
+                        <path class="segment" id="D" d="M 31 220 L 109 220 L 109 240 L 31 240 Z" />
+                        <path class="segment" id="E" d="M 10 129 L 20 129 L 30 139 L 30 240 L 20 240 L 10 230 Z" />
+                        <path class="segment" id="F" d="M 11 30 L 21 20 L 30 20 L 30 117 L 20 127 L 10 127 Z" />
+                        <path class="segment" id="G" d="M 21 128 L 31 118 L 109 118 L 119 128 L 109 138 L 31 138 Z" />
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        const segmentMap = {
+            "0": ["A", "B", "C", "D", "E", "F"],
+            "1": ["B", "C"],
+            "2": ["A", "B", "G", "E", "D"],
+            "3": ["A", "B", "G", "C", "D"],
+            "4": ["F", "G", "B", "C"],
+            "5": ["A", "F", "G", "C", "D"],
+            "6": ["A", "F", "G", "C", "D", "E"],
+            "7": ["A", "B", "C"],
+            "8": ["A", "B", "C", "D", "E", "F", "G"],
+            "9": ["A", "B", "C", "D", "F", "G"]
+        };
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString("en-US", { hour12: false });
+            const digits = timeString.replace(/:/g, "").split("");
+
+            digits.forEach((digit, index) => {
+                const cell = document.getElementById(`D${index + 1}`);
+                const activeSegments = segmentMap[digit];
+
+                // segments
+                cell.querySelectorAll(".segment").forEach(segment => {
+                    segment.style.fill = "rgba(82,89,93, 0.2)";
+                    segment.style.filter = "";  
+                });
+
+    
+                activeSegments.forEach(id => {
+                    const segment = cell.querySelector(`#${id}`);
+                    if (segment) {
+                        segment.style.fill = "red";
+
+                        segment.style.filter = "drop-shadow(0 0 10px red)";
+                    }
+                });
+            });
+        }
+
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+    </script>
+
+
+</body>
+
+</html>
